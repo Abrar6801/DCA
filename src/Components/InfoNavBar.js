@@ -32,8 +32,7 @@ function InfoNavBar() {
               </DropdownToggle>
               <DropdownMenu end>
                 <DropdownItem href='/userInfo'>User Info</DropdownItem>
-                <DropdownItem href='/adminProd'>All Products</DropdownItem>
-                <DropdownItem href='/addProd'>Add Product</DropdownItem>
+                <DropdownItem href='/blockedUsers'>Bloked User Info</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <UncontrolledDropdown nav inNavbar>
@@ -43,6 +42,15 @@ function InfoNavBar() {
               <DropdownMenu end>
                 <DropdownItem href='/repInfo'>Reps Info</DropdownItem>
                 <DropdownItem href='/addRep'>Add Rep</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Products
+              </DropdownToggle>
+              <DropdownMenu end>
+              <DropdownItem href='/adminProd'>All Products</DropdownItem>
+                <DropdownItem href='/addProd'>Add Product</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>

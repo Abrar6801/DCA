@@ -18,6 +18,26 @@ const User = ({user,update}) =>{
             }
         )
     }
+    const blockUser=(user,id)=>{
+        axios.put(`${BASE_URL}/blokcedUser/updateBlockUser`,user).then(
+            (response)=>{
+                toast.success("blocked and deleted");
+            },
+            (error)=>{
+                toast.error("user not blocked");
+            }
+        )
+        axios.delete(`${BASE_URL}/users/deleteUsers/${id}`).then(
+            (response)=>{
+                console.log("deleted");
+                update(id);
+            },
+            (error)=>{
+                toast.error("user not deleted");
+            }
+        )
+    }
+
 
     
      return <Container>
@@ -31,7 +51,7 @@ const User = ({user,update}) =>{
                         <td>{user.gst}</td>
                         <td>{user.phNo}</td>
                         <Button color="dark" className="float-right mt-1"outline onClick={()=>{deleteUser(user.id);}}>Delete</Button>
-                        
+                        <Button color="dark" className="float-right mt-1"outline onClick={()=>{blockUser(user,user.id);}}>Block</Button>
                     </tr>
                     
                 </tbody>

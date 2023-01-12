@@ -17,6 +17,7 @@ import SingleUser from './Components/SingleUser';
 import UserRepDisplay from './Components/UserRepDisplay';
 import UpdateUser from './Components/UpdateUser';
 import AdminProdInfo from './Components/AdminProdInfo';
+import BlockedUserInfo from './Components/BlockedUserInfo';
 
 
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/UserRep" element={<UserRepDisplay/>}/>
         <Route path="/edit" element={<UpdateUser/>}/>
         <Route path="/adminProd" element={<AdminProdInfo/>}/>
+        <Route path="/blockedUsers" element={<BlockedUserInfo/>}/>
       </Routes>
       </BrowserRouter>
     </div>
