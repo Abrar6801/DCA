@@ -3,21 +3,24 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Container, Table } from "reactstrap";
 import { BASE_URL } from "../Services/Helper";
+import Spin from "../Spin";
 import InfoNavBar from "../User/InfoNavBar";
-import AdminProd from "./AdminProd";
+import AdminProduct from "./AdminProduct";
 
 
 
-const AdminProdInfo=()=>{
+const AdminProductInfo=()=>{
     useEffect(()=>{
         document.title="All Products";
     },[])
-
+    const [loading,setLoading] = useState(false);
     const getAllProductsFromServer = () =>{
+        setLoading(true);
         axios.get(`${BASE_URL}/products`).then(
             (response) => {
                 console.log(response.data);
                 setProducts(response.data);
+                setLoading(false);
             },
             (error) => {
                 console.log(error);
@@ -30,30 +33,16 @@ const AdminProdInfo=()=>{
     },[]);
     const [products,setProducts] = useState([]);
 
-    const updateProductById=(id)=>{
-        setProducts(products.filter((c)=>c.id!=id));
-    }
+    
     return(
         <div>
             <InfoNavBar/><br/>
-            <Container>
-                {/* <Table dark hover striped className="mt-5">
-                    <thead>
-                        <tr>
-                            <th scope="row">Product Id</th>
-                            <td>Product Name</td>
-                            <td>Man Date</td>
-                            <td>Exp Date</td>
-                            <td>Price</td>
-                        </tr>
-                    </thead>
-                </Table> */}
-            </Container>
+            {loading && <Spin/>}
             {
-                products.length>0 ? products.map((item)=><AdminProd key={item.id} prod={item} update={updateProductById}/>):"No Products"
+                products.length>0 ? products.map((item)=><AdminProduct key={item.id} product={item}/>):"No Products"
             }
         </div>
     )
 }
 
-export default AdminProdInfo;
+export default AdminProductInfo;

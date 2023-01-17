@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../Services/Helper";
 
-const AdminProd = ({prod}) =>{
+const AdminProduct = ({product}) =>{
     const deleteProd=(productId)=>{
         axios.delete(`${BASE_URL}/products/deleteProduct/${productId}`).then(
             (response)=>{
@@ -22,12 +22,12 @@ const AdminProd = ({prod}) =>{
                 <Table dark hover striped>
                     <tbody>
                         <tr>
-                            <th scope="row">{prod.productId}</th>
-                            <td>{prod.productName}</td>
-                            <td>Mfg.Date {prod.manufacturingDate}</td>
-                            <td>Exp.Date {prod.expDaste}</td>
-                            <td>Rs: {prod.price}/piece</td>
-                            <Button  className=" mr-5"outline onClick={()=>{deleteProd(prod.productId);}}>Delete</Button>
+                        <th scope="row">{product.productId}</th>
+                            <td>{product.productName}</td>
+                            <td>Mfg.Date {product.manufacturingDate}</td>
+                            <td>Exp.Date {product.expireDate}</td>
+                            <td>Rs: {product.price}/piece</td>
+                            <Button  className=" mr-5"outline onClick={()=>{deleteProd(product.productId);}}>Delete</Button>
                         </tr>
                         
                     </tbody>
@@ -39,4 +39,4 @@ const AdminProd = ({prod}) =>{
     );
 }
 
-export default AdminProd;
+export default AdminProduct;

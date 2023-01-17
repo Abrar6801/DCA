@@ -4,18 +4,20 @@ import { toast } from "react-toastify";
 import { BASE_URL } from "../Services/Helper";
 import RepDisplay from "../Representative/RepDisplay";
 import UserNavBar from "./UserNavBar";
-import { Container, Table } from "reactstrap";
+import Spin from "../Spin";
 
 const UserRepDisplay=()=>{
     useEffect(()=>{
         document.title = "All Reps";
     },[])
-
+    const [loading,setLoading] = useState(false);
     const getAllRepsFromServer = () =>{
+        setLoading(true);
         axios.get(`${BASE_URL}/representatives`).then(
             (response) => {
                 console.log(response.data);
                 setReps(response.data);
+                setLoading(false);
             },
             (error) => {
                 console.log(error);
@@ -33,22 +35,8 @@ const UserRepDisplay=()=>{
     }
     return(
         <div>
-            {/* <InfoNavBar/> */}
             <UserNavBar/><br/>
-            <Container>
-            {/* 
-            <Table dark hover striped className="mt-5">
-                <thead>
-                    <tr>
-                    <th scope="row">Rep Id</th>
-                        <td>Name</td>
-                        <td>position</td>
-                        <td>Email</td>
-                        <td>phoneNumber</td>
-                    </tr>
-                </thead>
-            </Table> */}
-        </Container>
+            {loading && <Spin/>}
             {
                 reps.length>0 ? reps.map((item)=><RepDisplay key={item.id} rep = {item} update={updateRepById}/>):"No Reps"
             }

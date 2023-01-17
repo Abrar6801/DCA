@@ -17,7 +17,7 @@ import AddProduct from './Components/Product/AddProduct';
 import SingleUser from './Components/User/SingleUser';
 import UserRepDisplay from './Components/User/UserRepDisplay';
 import UpdateUser from './Components/User/UpdateUser';
-import AdminProdInfo from './Components/Admin/AdminProdInfo';
+import AdminProductInfo from './Components/Admin/AdminProductInfo';
 
 import BlockedUserInfo from './Components/User/BlockedUserInfo';
 
@@ -46,7 +46,7 @@ function App() {
         <Route path="/singleUser" element={<SingleUser/>}/>
         <Route path="/UserRep" element={<UserRepDisplay/>}/>
         <Route path="/edit" element={<UpdateUser/>}/>
-        <Route path="/adminProd" element={<AdminProdInfo/>}/>
+        <Route path="/adminProd" element={<AdminProductInfo/>}/>
         <Route path="/blockedUsers" element={<BlockedUserInfo/>}/>
       </Routes>
       </BrowserRouter>
