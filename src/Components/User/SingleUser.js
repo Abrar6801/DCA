@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "./Services/Helper";
+
 import { toast } from "react-toastify";
 import { Button, Card, CardBody, CardHeader, CardSubtitle, CardTitle, Col, Container, Form, Input, Row } from "reactstrap";
+import { BASE_URL } from "../Services/Helper";
 import UserNavBar from "./UserNavBar";
+
 
 const SingleUser=()=>{
     const getSingleUser=()=>{
-        axios.get(`${BASE_URL}/users/615`).then(
+        axios.get(`${BASE_URL}/users/6`).then(
             (response)=>{
                 console.log(response.data);
                 
@@ -46,11 +48,11 @@ const SingleUser=()=>{
         <h4>User Details</h4>
         <CardBody>
             <h6>Unique id - {user.id}</h6><br/>
-            <h6>Business Name - {user.bname}</h6><br/>
-            <h6>Owner's Name - {user.pname}</h6><br/>
-            <h6>Drug Licence id - {user.drugL}</h6><br/>
+            <h6>Business Name - {user.businessName}</h6><br/>
+            <h6>Owner's Name - {user.ownerName}</h6><br/>
+            <h6>Drug Licence id - {user.drugLicence}</h6><br/>
             <h6>GST Number - {user.gst}</h6><br/>
-            <h6>Phone Number - {user.phNo}</h6><br/>
+            <h6>Phone Number - {user.phoneNumber}</h6><br/>
             <Button className="mt-3"href="/edit" >Edit</Button>
         </CardBody>
         </Card>

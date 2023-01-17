@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormFeedback, FormGroup, Input, Label, Row } from "reactstrap";
-import NavBar from "./NavBar";
+import Navbar from "./NavBar";
 import { signUp } from "./Services/user-service";
 import { toast } from "react-toastify";
 import "./global.css"
+import NavBar from "./NavBar";
 
 
 const SignUp =()=>{
     const [data,setData] = useState({
-        bname:'',
-        pname:'',
-        drugL:'',
+        businessName:'',
+        ownerName:'',
+        drugLicenceicence:'',
         gst:'',
-        phNo:'',
+        phoneNumber:'',
         password:''
     })
 
@@ -27,18 +28,18 @@ const SignUp =()=>{
 
     const resetData=()=>{
         setData({
-            bname:'',
-            pname:'',
-            drugL:'',
+            businessName:'',
+            ownerName:'',
+            drugLicenceicence:'',
             gst:'',
-            phNo:'',
+            phoneNumber:'',
             password:''
         })
     }
 
     const submitForm=(event)=>{
         event.preventDefault();
-        if(data.bname.length==0 || data.pname.length==0 || data.drugL.length==0 || data.gst.length!=15 || data.phNo.length==0 || data.password.length==0){
+        if(data.businessName.length==0 || data.ownerName.length==0 || data.drugLicence.length==0 || data.gst.length!=15 || data.phoneNumber.length==0 || data.password.length==0){
             setError(true);
             
         }else{
@@ -49,11 +50,11 @@ const SignUp =()=>{
             console.log("sucess log")
             toast.success("Registration Sucessful!! your unique id is : "+resp)
             setData({
-                bname:'',
-                pname:'',
-                drugL:'',
+                businessName:'',
+                ownerName:'',
+                drugLicence:'',
                 gst:'',
-                phNo:'',
+                phoneNumber:'',
                 password:''
             })
         }).catch((error)=>{
@@ -74,37 +75,37 @@ const SignUp =()=>{
                 <CardBody>
                     <Form onSubmit={submitForm}>
                         <FormGroup>
-                            <h6 for="bname">Business Name</h6>
-                            <Input type="text" placeholder="Business name" onChange={(e)=>handleChange(e,'bname')} value={data.bname}/>
-                            {error&&data.bname.length==0 ?
+                            <h6 for="businessName">Business Name</h6>
+                            <Input type="text" placeholder="Business name" onChange={(e)=>handleChange(e,'businessName')} value={data.businessName}/>
+                            {error&&data.businessName.length==0 ?
                             <Label>Business name cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="pname">Owners Name</h6><Input type="text" placeholder="Owners name" 
-                            onChange={(e)=>handleChange(e,'pname')} value={data.pname}/>
-                            {error&&data.pname.length==0 ?
+                            <h6 for="ownerName">Owners Name</h6><Input type="text" placeholder="Owners name" 
+                            onChange={(e)=>handleChange(e,'ownerName')} value={data.ownerName}/>
+                            {error&&data.ownerName.length==0 ?
                             <Label>Owner name cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="drugL">Drug Licence</h6>
-                            <Input type="text" placeholder="Licence number" onChange={(e)=>handleChange(e,'drugL')} value={data.drugL}/>
-                            {error&&data.drugL.length==0 ?
+                            <h6 for="drugLicence">Drug Licence</h6>
+                            <Input type="text" placeholder="Licence number" onChange={(e)=>handleChange(e,'drugLicence')} value={data.drugLicence}/>
+                            {error&&data.drugLicence.length==0 ?
                             <Label>Drug licance cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="gst">GST</h6><Input type="text" placeholder="GST number" onChange={(e)=>handleChange(e,'gst')} value={data.gst}/>
+                            <h6 for="gst">gst</h6><Input type="text" placeholder="gst number" onChange={(e)=>handleChange(e,'gst')} value={data.gst}/>
                             {error&&data.gst.length!=15 ?
-                            <Label>Enter valid GST number</Label>:""}
+                            <Label>Enter valid gst number</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="phNo">Phone number</h6><Input type="number" placeholder="Phone number" onChange={(e)=>handleChange(e,'phNo')} value={data.phNo}/>
-                            {error&&data.phNo.length!=10 ?
+                            <h6 for="phoneNumber">Phone number</h6><Input type="number" placeholder="Phone number" onChange={(e)=>handleChange(e,'phoneNumber')} value={data.phoneNumber}/>
+                            {error&&data.phoneNumber.length!=10 ?
                             <Label>Enter valid Phone number</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="password">Password</h6><Input type="text" placeholder="Password" onChange={(e)=>handleChange(e,'password')} value={data.password}/>
+                            <h6 for="password">password</h6><Input type="text" placeholder="password" onChange={(e)=>handleChange(e,'password')} value={data.password}/>
                             {error&&data.password.length==0 ?
-                            <Label>Password cannot be empty</Label>:""}
+                            <Label>password cannot be empty</Label>:""}
                         </FormGroup>
                         <Container>
                             <Button color="dark">Register</Button>

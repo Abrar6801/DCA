@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
-import NavBar from "./NavBar";
+import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Row } from "reactstrap";
+import NavBar from "../NavBar";
+
 
 const AdminLogin =()=>{
     return <div>
@@ -19,8 +20,8 @@ const AdminLogin =()=>{
                                     <Input type="text" placeholder="Enter admin Id"/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <h6 for="password" >Password</h6>
-                                    <Input type="password" placeholder="Enter Password"/>
+                                    <h6 for="password" >password</h6>
+                                    <Input type="password" placeholder="Enter password"/>
                                 </FormGroup>
                                 <Container>
                                     <Button type="login" color="dark" href="/info">Login</Button>

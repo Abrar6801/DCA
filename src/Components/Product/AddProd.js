@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
-import InfoNavBar from "./InfoNavBar";
-import { prodAdd } from "./Services/prod-service";
+import { prodAdd } from "../Services/prod-service";
+import InfoNavBar from "../User/InfoNavBar";
+
 
 const AddProd=()=>{
     const [data,setData] = useState({
-        prodName:'',
-        manDate:'',
-        expDate:'',
+        productName:'',
+        manufacturingDate:'',
+        expireDate:'',
         price:''
     })
 
@@ -23,16 +24,16 @@ const AddProd=()=>{
 
     const resetData=()=>{
         setData({
-            prodName:'',
-            manDate:'',
-            expDate:'',
+            productName:'',
+            manufacturingDate:'',
+            expireDate:'',
             price:''
         })
     }
 
     const submitProd=(event)=>{
         event.preventDefault();
-        if(data.prodName.length==0 || data.manDate.length==0 || data.expDate.length==0 || data.price.length==0){
+        if(data.productName.length==0 || data.manufacturingDate.length==0 || data.expireDate.length==0 || data.price.length==0){
             setError(true);
         }
         else{
@@ -40,15 +41,15 @@ const AddProd=()=>{
         console.log(data);
         prodAdd(data).then((resp)=>{
             console.log(resp);
-            console.log("product entered")
+            console.log("prod entered")
             toast.success("Product entered")
             setData({
-                prodName:'',
-                manDate:'',
-                expDate:'',
+                productName:'',
+                manufacturingDate:'',
+                expireDate:'',
                 price:''
             })
-        }).catch((eroor)=>{
+        }).catch((error)=>{
             console.log(error);
             console.log("Error log");
         })
@@ -66,24 +67,24 @@ const AddProd=()=>{
                 <CardBody>
                     <Form onSubmit={submitProd}>
                         <FormGroup>
-                            <h6 for="prodName">Product Name</h6>
+                            <h6 for="productName">Product Name</h6>
                             <Input type="text" placeholder="Product name"
-                            onChange={(e)=>handleProd(e,'prodName')} value={data.prodName}/>
-                            {error&&data.prodName.length==0 ?
+                            onChange={(e)=>handleProd(e,'productName')} value={data.productName}/>
+                            {error&&data.productName.length==0 ?
                             <Label>Product name cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="manDate">Manufacturing Date</h6>
+                            <h6 for="manufacturingDate">Manufacturing Date</h6>
                             <Input type="date" placeholder="Manufacturing date"
-                            onChange={(e)=>handleProd(e,'manDate')} value={data.manDate}/>
-                            {error&&data.manDate.length==0 ?
+                            onChange={(e)=>handleProd(e,'manufacturingDate')} value={data.manufacturingDate}/>
+                            {error&&data.manufacturingDate.length==0 ?
                             <Label>Enter Manufacturing date</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="expDate">Expire Date</h6>
+                            <h6 for="expireDate">Expire Date</h6>
                             <Input type="date" placeholder="Expire date"
-                            onChange={(e)=>handleProd(e,'expDate')} value={data.expDate}/>
-                            {error&&data.expDate.length==0 ?
+                            onChange={(e)=>handleProd(e,'expireDate')} value={data.expireDate}/>
+                            {error&&data.expireDate.length==0 ?
                             <Label>Enter Expire date</Label>:""}
                         </FormGroup>
                         <FormGroup>

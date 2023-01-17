@@ -21,8 +21,8 @@ const Login = () =>{
         if(loginDetail.username.trim()=='' || loginDetail.password.trim()==''){
             toast.error("Username or password required");
         }
-        
     }
+    const [loading,setLoading] =useState(false);
     return <div>
         <NavBar/>
         <Container >
@@ -39,8 +39,8 @@ const Login = () =>{
                                     <Input type="text" placeholder="Enter User Id" value={(loginDetail.username)} onChange={(e)=>handleChange(e,'username')}/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <h6 for="password" >Password</h6>
-                                    <Input type="password" placeholder="Enter Password" value={(loginDetail.password)} onChange={(e)=>handleChange(e,'password')}/>
+                                    <h6 for="password" >password</h6>
+                                    <Input type="password" placeholder="Enter password" value={(loginDetail.password)} onChange={(e)=>handleChange(e,'password')}/>
                                 </FormGroup>
                                 <Container>
                                     <Button type="login" color="dark" href="/singleUser">Login</Button>

@@ -1,10 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Container, Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import { Container} from "reactstrap";
+import { BASE_URL } from "../Services/Helper";
 import InfoNavBar from "./InfoNavBar";
-import { BASE_URL } from "./Services/Helper";
+
+
 import User from "./User";
+
+
 
 const UserInfo=()=>{
     useEffect(()=>{
@@ -25,22 +29,27 @@ const UserInfo=()=>{
         );
     };
     useEffect(()=>{
+        setLoading(true);
         getAllUsersFromServer();
+        setLoading(false);
     },[]);
     const [users,setUsers] = useState([]);
 
     const updateUserById=(id)=>{
         setUsers(users.filter((c)=>c.id!==id));
     }
+    const [loading,setLoading] = useState(false);
     return(
         <div>
-            
             <InfoNavBar/><br/>
             <Container>
             {
-                users.length>0 ? users.map((item)=><User key={item.id} user = {item} update={updateUserById}/>):"No courses"
+                users.length>0 ? users.map((item)=><User key={item.id} user = {item} update={updateUserById}/>):"No users"
             }
             </Container>
+             
+            
+            
         </div>
     )
 }

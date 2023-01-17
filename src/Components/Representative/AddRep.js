@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
-import InfoNavBar from "./InfoNavBar";
-import { repAdd } from "./Services/rep-service";
+import { repAdd } from "../Services/rep-service";
+import InfoNavBar from "../User/InfoNavBar";
+
 
 const AddRep=()=>{
     const [data,setData] = useState({
         name:'',
         position:'',
-        phNo:'',
+        phoneNumber:'',
         email:''
     })
 
@@ -25,14 +26,14 @@ const AddRep=()=>{
         setData({
             name:'',
             position:'',
-            phNo:'',
+            phoneNumber:'',
             email:''
         })
     }
 
     const submitRep=(event)=>{
         event.preventDefault();
-        if(data.name.length==0 || data.position.length==0 || data.phNo.length!=10 || data.position.length==0){
+        if(data.name.length==0 || data.position.length==0 || data.phoneNumber.length!=10 || data.position.length==0){
             setError(true)
         }else{
         setError(false);
@@ -44,7 +45,7 @@ const AddRep=()=>{
             setData({
                 name:'',
                 position:'',
-                phNo:'',
+                phoneNumber:'',
                 email:''
             })
         }).catch((error)=>{
@@ -72,17 +73,17 @@ const AddRep=()=>{
                             <Label>Name cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="position">Position</h6>
-                            <Input type="text" placeholder="Position"
+                            <h6 for="position">position</h6>
+                            <Input type="text" placeholder="position"
                             onChange={(e)=>handleRep(e,'position')} value={data.position}/>
                             {error&&data.position.length==0 ?
-                            <Label>Position cannot be empty</Label>:""}
+                            <Label>position cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
-                            <h6 for="phno">Phone Number</h6>
+                            <h6 for="phoneNumber">Phone Number</h6>
                             <Input type="number" placeholder="Phone number"
-                            onChange={(e)=>handleRep(e,'phNo')} value={data.phNo}/>
-                            {error&&data.phNo.length!=10 ?
+                            onChange={(e)=>handleRep(e,'phoneNumber')} value={data.phoneNumber}/>
+                            {error&&data.phoneNumber.length!=10 ?
                             <Label>Enter valid Phone number</Label>:""}
                         </FormGroup>
                         <FormGroup>

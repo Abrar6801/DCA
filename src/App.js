@@ -1,23 +1,27 @@
-import Login from './Components/Login';
+
 import './App.css';
-import AdminLogin from './Components/AdminLogin';
-import SignUp from './Components/SignUp';
+
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import Home from './Components/Home';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Info from './Components/Info';
-import UserInfo from './Components/UserInfo';
-import RepInfo from './Components/RepInfo';
-import UserRep from './Components/UserRep';
-import ProdInfo from './Components/ProdInfo';
-import AddRep from './Components/AddRep';
-import AddProd from './Components/AddProd';
-import SingleUser from './Components/SingleUser';
-import UserRepDisplay from './Components/UserRepDisplay';
-import UpdateUser from './Components/UpdateUser';
-import AdminProdInfo from './Components/AdminProdInfo';
-import BlockedUserInfo from './Components/BlockedUserInfo';
+import Login from './Components/Login';
+import SignUp from './Components/SignUp';
+import AdminLogin from './Components/Admin/AdminLogin';
+import Info from './Components/User/Info';
+import UserInfo from './Components/User/UserInfo';
+import RepInfo from './Components/Representative/RepInfo';
+import UserRep from './Components/User/UserRep';
+import ProdInfo from './Components/Product/ProdInfo';
+import AddRep from './Components/Representative/AddRep';
+import AddProd from './Components/Product/AddProd';
+import SingleUser from './Components/User/SingleUser';
+import UserRepDisplay from './Components/User/UserRepDisplay';
+import UpdateUser from './Components/User/UpdateUser';
+import AdminProdInfo from './Components/Admin/AdminProdInfo';
+
+import BlockedUserInfo from './Components/User/BlockedUserInfo';
+
+
 
 
 

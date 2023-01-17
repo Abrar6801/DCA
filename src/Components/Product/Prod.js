@@ -9,10 +9,10 @@ const Prod = ({prod}) =>{
                 <Table dark hover striped>
                     <tbody>
                         <tr>
-                            <th scope="row">{prod.prodId}</th>
-                            <td>{prod.prodName}</td>
-                            <td>Mfg.Date {prod.manDate}</td>
-                            <td>Exp.Date {prod.expDate}</td>
+                            <th scope="row">{prod.productId}</th>
+                            <td>{prod.productName}</td>
+                            <td>Mfg.Date {prod.manufacturingDate}</td>
+                            <td>Exp.Date {prod.expireDate}</td>
                             <td>Rs: {prod.price}/piece</td>
                         </tr>
                     </tbody>

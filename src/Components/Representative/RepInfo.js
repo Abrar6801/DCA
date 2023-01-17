@@ -1,20 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { BASE_URL } from "./Services/Helper";
-import RepDisplay from "./RepDisplay";
-import UserNavBar from "./UserNavBar";
-import { Container, Table } from "reactstrap";
 
-const UserRepDisplay=()=>{
+import { Container, Table } from "reactstrap";
+import { BASE_URL } from "../Services/Helper";
+import InfoNavBar from "../User/InfoNavBar";
+import Rep from "./Rep";
+
+const RepInfo=()=>{
     useEffect(()=>{
         document.title = "All Reps";
     },[])
 
     const getAllRepsFromServer = () =>{
-        axios.get(`${BASE_URL}/Reps`).then(
+        axios.get(`${BASE_URL}/representatives`).then(
             (response) => {
                 console.log(response.data);
+                toast.success("Reps have been loaded")
                 setReps(response.data);
             },
             (error) => {
@@ -33,28 +35,14 @@ const UserRepDisplay=()=>{
     }
     return(
         <div>
-            {/* <InfoNavBar/> */}
-            <UserNavBar/><br/>
+            <InfoNavBar/><br></br>
             <Container>
-            {/* 
-            <Table dark hover striped className="mt-5">
-                <thead>
-                    <tr>
-                    <th scope="row">Rep Id</th>
-                        <td>Name</td>
-                        <td>Position</td>
-                        <td>Email</td>
-                        <td>PhNo</td>
-                    </tr>
-                </thead>
-            </Table> */}
         </Container>
             {
-                reps.length>0 ? reps.map((item)=><RepDisplay key={item.id} rep = {item} update={updateRepById}/>):"No Reps"
+                reps.length>0 ? reps.map((item)=><Rep key={item.id} rep = {item} update={updateRepById}/>):"No Reps"
             }
         </div>
     )
 }
 
-
-export default UserRepDisplay;
+export default RepInfo;

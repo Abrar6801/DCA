@@ -11,11 +11,11 @@ const RepDisplay=({rep})=>{
             <Table dark hover striped>
                 <tbody>
                     <tr>
-                        <th scope="row">{rep.repId}</th>
+                        <th scope="row">{rep.representativeId}</th>
                         <td>{rep.name}</td>
                         <td>{rep.position}</td>
                         <td>{rep.email}</td>
-                        <td>{rep.phNo}</td>
+                        <td>{rep.phoneNumber}</td>
                     </tr>
                 </tbody>
             </Table>

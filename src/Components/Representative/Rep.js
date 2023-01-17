@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Button,Container, Table } from "reactstrap";
 import axios from "axios";
-import { BASE_URL } from "./Services/Helper";
+
 import { toast } from "react-toastify";
-import InfoNavBar from "./InfoNavBar";
+import { BASE_URL } from "../Services/Helper";
+
 
 
 
 
 const Rep=({rep,update})=>{
-    const deleteRep=(repId)=>{
-        axios.delete(`${BASE_URL}/reps/deleteRep/${repId}`).then(
+    const deleteRep=(representativeId)=>{
+        axios.delete(`${BASE_URL}/representatives/deleteRepresentative/${representativeId}`).then(
             (response)=>{
                 toast.success("deleted");
-                update(repId);
+                update(representativeId);
             },
             (error)=>{
                 toast.error("Rep not deleted");
@@ -28,12 +29,12 @@ const Rep=({rep,update})=>{
             <Table dark hover striped>
                 <tbody>
                     <tr>
-                        <th scope="row">{rep.repId}</th>
+                        <th scope="row">{rep.representativeId}</th>
                         <td>{rep.name}</td>
                         <td>{rep.position}</td>
                         <td>{rep.email}</td>
-                        <td>{rep.phNo}</td>
-                        <Button color="dark" className="float-right mt-1"outline onClick={()=>{deleteRep(rep.repId);}}>Delete</Button>
+                        <td>{rep.phoneNumber}</td>
+                        <Button color="dark" className="float-right mt-1"outline onClick={()=>{deleteRep(rep.representativeId);}}>Delete</Button>
                     </tr>
                     
                 </tbody>

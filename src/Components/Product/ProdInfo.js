@@ -2,10 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Container, Table } from "reactstrap";
-import InfoNavBar from "./InfoNavBar";
+import { BASE_URL } from "../Services/Helper";
+import UserNavBar from "../User/UserNavBar";
 import Prod from "./Prod";
-import { BASE_URL } from "./Services/Helper";
-import UserNavBar from "./UserNavBar";
+
 
 
 const ProdInfo=()=>{

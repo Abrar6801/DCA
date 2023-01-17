@@ -2,43 +2,44 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Container } from "reactstrap";
+
+import { BASE_URL } from "../Services/Helper";
 import BlockedUser from "./BlockedUser";
 import InfoNavBar from "./InfoNavBar";
-import { BASE_URL } from "./Services/Helper";
 
-const BlockedUserInfo=()=>{
+const BlocekdUserInfo=()=>{
     useEffect(()=>{
-        document.title="Blocked Users";
+        document.title="All Users";
     },[])
 
     const getAllBlockedUsersFromServer = () =>{
-        axios.get(`${BASE_URL}/blockedUsers`).then(
+        axios.get(`${BASE_URL}/blockedUser`).then(
             (response)=>{
                 console.log(response.data);
-                toast.success("Blocked users loaded")
+                toast.success("Blocked users have been loaded")
                 setBlockedUsers(response.data);
             },
             (error)=>{
                 console.log(error);
-                toast.error("something went wrong");
+                toast.error("something went wrong")
             }
         );
     };
     useEffect(()=>{
         getAllBlockedUsersFromServer();
     },[]);
-
     const [blockedUsers,setBlockedUsers] = useState([]);
+
     return(
         <div>
             <InfoNavBar/><br/>
             <Container>
                 {
-                    blockedUsers.length>0 ? blockedUsers.map((item)=><BlockedUser key={item.id} user={item} />):"No blocked users"
+                    blockedUsers.length>0 ? blockedUsers.map((item)=><BlockedUser key={item.id} blockedUser = {item}/>):"No Blocked users"
                 }
             </Container>
         </div>
     )
 }
 
-export default BlockedUserInfo;
+export default BlocekdUserInfo;
