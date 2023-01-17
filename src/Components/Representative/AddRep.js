@@ -33,7 +33,7 @@ const AddRep=()=>{
 
     const submitRep=(event)=>{
         event.preventDefault();
-        if(data.name.length==0 || data.position.length==0 || data.phoneNumber.length!=10 || data.position.length==0){
+        if(data.name.length==0 || data.position.length==0 || data.phoneNumber.length!=10 || data.position.length==0 || data.phoneNumber<6000000000 ){
             setError(true)
         }else{
         setError(false);
@@ -83,7 +83,7 @@ const AddRep=()=>{
                             <h6 for="phoneNumber">Phone Number</h6>
                             <Input type="number" placeholder="Phone number"
                             onChange={(e)=>handleRep(e,'phoneNumber')} value={data.phoneNumber}/>
-                            {error&&data.phoneNumber.length!=10 ?
+                            {error&&data.phoneNumber.length!=10|| data.phoneNumber<6000000000 ?
                             <Label>Enter valid Phone number</Label>:""}
                         </FormGroup>
                         <FormGroup>

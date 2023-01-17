@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Navbar,
     NavbarBrand,
@@ -23,10 +24,10 @@ function UserNavBar() {
         
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/UserRep">Rep info</NavLink>
+              <Link to="/userRep" className="nav-link">Rep info</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/prods">New products</NavLink>
+              <Link to="/prods" className="nav-link">New products</Link>
             </NavItem>
           </Nav>
           <NavbarText>Ennea solution</NavbarText>

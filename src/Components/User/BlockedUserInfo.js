@@ -9,7 +9,7 @@ import InfoNavBar from "./InfoNavBar";
 
 const BlocekdUserInfo=()=>{
     useEffect(()=>{
-        document.title="All Users";
+        document.title="All Blocked Users";
     },[])
 
     const getAllBlockedUsersFromServer = () =>{

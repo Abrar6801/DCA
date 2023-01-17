@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { Container, Table } from "reactstrap";
+import { toast } from "react-toastify";  
 import { BASE_URL } from "../Services/Helper";
 import UserNavBar from "../User/UserNavBar";
-import Prod from "./Prod";
+import Product from "./Product";
 
 
 
-const ProdInfo=()=>{
+const ProductInfo=()=>{
     useEffect(()=>{
         document.title="All Products";
     },[])
@@ -36,24 +35,11 @@ const ProdInfo=()=>{
     return(
         <div>
             <UserNavBar/><br/>
-            <Container>
-                {/* <Table dark hover striped className="mt-5">
-                    <thead>
-                        <tr>
-                            <th scope="row">Product Id</th>
-                            <td>Product Name</td>
-                            <td>Man Date</td>
-                            <td>Exp Date</td>
-                            <td>Price</td>
-                        </tr>
-                    </thead>
-                </Table> */}
-            </Container>
             {
-                products.length>0 ? products.map((item)=><Prod key={item.id} prod={item} update={updateProductById}/>):"No Products"
+                products.length>0 ? products.map((item)=><Product key={item.id} product={item} update={updateProductById}/>):"No Products"
             }
         </div>
     )
 }
 
-export default ProdInfo;
+export default ProductInfo;

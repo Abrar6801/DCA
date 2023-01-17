@@ -5,14 +5,16 @@ import { prodAdd } from "../Services/prod-service";
 import InfoNavBar from "../User/InfoNavBar";
 
 
-const AddProd=()=>{
+const AddProduct=()=>{
     const [data,setData] = useState({
         productName:'',
         manufacturingDate:'',
         expireDate:'',
         price:''
     })
-
+    useEffect(()=>{
+        document.title="Add Product";
+    },[])
     const[error,setError] = useState(false)
 
     useEffect(()=>{
@@ -33,7 +35,8 @@ const AddProd=()=>{
 
     const submitProd=(event)=>{
         event.preventDefault();
-        if(data.productName.length==0 || data.manufacturingDate.length==0 || data.expireDate.length==0 || data.price.length==0){
+        if(data.productName.length==0 || data.manufacturingDate.length==0 || 
+            data.expireDate.length==0 || data.price.length==0 || data.price<0){
             setError(true);
         }
         else{
@@ -91,8 +94,8 @@ const AddProd=()=>{
                             <h6 for="price">Price</h6>
                             <Input type="number" placeholder="Price"
                             onChange={(e)=>handleProd(e,'price')} value={data.price}/>
-                            {error&&data.price.length==0 ?
-                            <Label>Enter price</Label>:""}
+                            {error&&data.price.length==0||data.price<0 ?
+                            <Label>Enter correct price</Label>:""}
                         </FormGroup>
                         <Container>
                             <Button color="dark" onSubmit={submitProd}>Add</Button>
@@ -107,4 +110,4 @@ const AddProd=()=>{
     </div>
 }
 
-export default AddProd;
+export default AddProduct;

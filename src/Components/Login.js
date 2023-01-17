@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import NavBar from "./NavBar";
@@ -43,8 +44,12 @@ const Login = () =>{
                                     <Input type="password" placeholder="Enter password" value={(loginDetail.password)} onChange={(e)=>handleChange(e,'password')}/>
                                 </FormGroup>
                                 <Container>
-                                    <Button type="login" color="dark" href="/singleUser">Login</Button>
-                                    <Button type="reset" className="ms-2" color="secondary" href="/signUp">Signup</Button>
+                                    <Button color="dark">
+                                        <Link to="/singleUser" className="nav-link">Login</Link>
+                                    </Button>
+                                    <Button type="reset" className="ms-2" color="secondary" >
+                                        <Link to="/signUp" className="nav-link">Signup</Link>
+                                    </Button>
                                 </Container>
                             </Form>
                         </CardBody>

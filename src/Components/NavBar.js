@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Navbar,
     NavbarBrand,
@@ -18,20 +19,20 @@ function NavBar() {
       dark
       expand="md"
       fixed="">
-        <NavbarBrand href="/login">DCA</NavbarBrand>
+        <NavbarBrand><Link to="/login" className="nav-link">DCA</Link></NavbarBrand>
         
         
           <Nav className="me-auto" navbar>
             
             <NavItem>
-              <NavLink href="/signUp">
+              <Link to="/signUp" className="nav-link">
                 Sign up
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/adminLogin">
+              <Link to="/adminLogin" className="nav-link">
                 Admin
-              </NavLink>
+              </Link>
             </NavItem>
           </Nav>
           <NavbarText>Ennea solution</NavbarText>

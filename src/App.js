@@ -11,9 +11,9 @@ import Info from './Components/User/Info';
 import UserInfo from './Components/User/UserInfo';
 import RepInfo from './Components/Representative/RepInfo';
 import UserRep from './Components/User/UserRep';
-import ProdInfo from './Components/Product/ProdInfo';
+import ProductInfo from './Components/Product/ProductInfo';
 import AddRep from './Components/Representative/AddRep';
-import AddProd from './Components/Product/AddProd';
+import AddProduct from './Components/Product/AddProduct';
 import SingleUser from './Components/User/SingleUser';
 import UserRepDisplay from './Components/User/UserRepDisplay';
 import UpdateUser from './Components/User/UpdateUser';
@@ -26,6 +26,7 @@ import BlockedUserInfo from './Components/User/BlockedUserInfo';
 
 
 function App() {
+  const adm = 'admin';
   return (
     <div>
       <BrowserRouter>
@@ -39,9 +40,9 @@ function App() {
         <Route path='/userInfo' element={<UserInfo/>}/>
         <Route path='/repInfo' element={<RepInfo/>}/>
         <Route path='/uRepInfo' element={<UserRep/>}/>
-        <Route path='/prods' element={<ProdInfo/>}/>
+        <Route path='/prods' element={<ProductInfo/>}/>
         <Route path='/addRep' element={<AddRep/>}/>
-        <Route path="/addProd" element={<AddProd/>}/>
+        <Route path="/addProd" element={<AddProduct/>}/>
         <Route path="/singleUser" element={<SingleUser/>}/>
         <Route path="/UserRep" element={<UserRepDisplay/>}/>
         <Route path="/edit" element={<UpdateUser/>}/>

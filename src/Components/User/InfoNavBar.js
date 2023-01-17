@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Navbar,
     NavbarBrand,
@@ -29,8 +30,8 @@ function InfoNavBar() {
               Users
               </DropdownToggle>
               <DropdownMenu end>
-                <DropdownItem href='/userInfo'>User Info</DropdownItem>
-                <DropdownItem href='/blockedUsers'>Bloked User Info</DropdownItem>
+                <Link to="/userInfo" className="dropdown-item">User Info</Link>
+                <Link to="/blockedUsers" className="dropdown-item">Blocked User Info</Link>
               </DropdownMenu>
             </UncontrolledDropdown>
             <UncontrolledDropdown nav inNavbar>
@@ -38,8 +39,8 @@ function InfoNavBar() {
                 Reps
               </DropdownToggle>
               <DropdownMenu end>
-                <DropdownItem href='/repInfo'>Reps Info</DropdownItem>
-                <DropdownItem href='/addRep'>Add Rep</DropdownItem>
+                <Link to="/repInfo" className="dropdown-item">Reps Info</Link>
+                <Link to="/addRep" className="dropdown-item">Add Rep </Link>
               </DropdownMenu>
             </UncontrolledDropdown>
             <UncontrolledDropdown nav inNavbar>
@@ -47,8 +48,8 @@ function InfoNavBar() {
                 Products
               </DropdownToggle>
               <DropdownMenu end>
-              <DropdownItem href='/adminProd'>All Products</DropdownItem>
-                <DropdownItem href='/addProd'>Add Product</DropdownItem>
+                <Link to="/adminProd" className="dropdown-item">All Products</Link>
+                <Link to="/addProd" className="dropdown-item">Add Product </Link>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
