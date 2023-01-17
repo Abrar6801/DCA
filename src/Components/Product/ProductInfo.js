@@ -16,7 +16,6 @@ const ProductInfo=()=>{
         setLoading(true);
         axios.get(`${BASE_URL}/products`).then(
             (response) => {
-                console.log(response.data);
                 setProducts(response.data);
                 setLoading(false);
             },

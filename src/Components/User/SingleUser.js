@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { toast } from "react-toastify";
-import { Button, Card, CardBody, CardHeader, CardSubtitle, CardTitle, Col, Container, Form, Input, Row } from "reactstrap";
+import { Button, Card, CardBody, Col, Container, Row } from "reactstrap";
 import { BASE_URL } from "../Services/Helper";
 import UserNavBar from "./UserNavBar";
 
 
 const SingleUser=()=>{
     const getSingleUser=()=>{
-        axios.get(`${BASE_URL}/users/6`).then(
+        axios.get(`${BASE_URL}/users/20`).then(
             (response)=>{
                 console.log(response.data);
                 
@@ -27,14 +27,6 @@ const SingleUser=()=>{
     },[]);
     const [user,setUser] = useState([]);
     
-
-    const handleId=(e)=>{
-        e.preventDefault();
-        const id=e.target.id.value;
-        console.log("id is:"+id)
-        
-    }
-
     return <div>
         <UserNavBar/>
         <Container>

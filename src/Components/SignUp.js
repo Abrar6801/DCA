@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormFeedback, FormGroup, Input, Label, Row } from "reactstrap";
-import Navbar from "./NavBar";
+import React, {  useState } from "react";
+import { Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import { signUp } from "./Services/user-service";
 import { toast } from "react-toastify";
 import "./global.css"
@@ -9,7 +8,6 @@ import NavBar from "./NavBar";
 
 const SignUp =()=>{
     const [data,setData] = useState({
-        
         businessName:'',
         ownerName:'',
         drugLicenceicence:'',
@@ -20,8 +18,6 @@ const SignUp =()=>{
 
     const [error,setError] = useState(false)
 
-    useEffect(()=>{
-    },[data])
 
     const handleChange=(event,property)=>{
         setData({...data,[property]:event.target.value})
@@ -29,7 +25,6 @@ const SignUp =()=>{
 
     const resetData=()=>{
         setData({
-            
             businessName:'',
             ownerName:'',
             drugLicenceicence:'',
@@ -41,16 +36,13 @@ const SignUp =()=>{
 
     const submitForm=(event)=>{
         event.preventDefault();
-        if(data.businessName.length==0 || data.ownerName.length==0 || data.drugLicence.length==0 || data.gst.length!=15 || 
-            data.phoneNumber.length==0 || data.phoneNumber<6000000000 || data.password.length<=4 || 
-            data.password.length==0){
+        if(data.businessName.length===0 || data.ownerName.length===0 || data.drugLicence.length===0 || data.gst.length!==15 || 
+            data.phoneNumber.length===0 || data.phoneNumber<6000000000 || data.password.length<=4 || 
+            data.password.length===0){
             setError(true);
         }else{
         setError(false);
-        console.log(data);
         signUp(data).then((resp)=>{
-            console.log(data);
-            console.log("sucess log")
             toast.success("Registration Sucessful!!")
             setData({
                 businessName:'',
@@ -80,35 +72,35 @@ const SignUp =()=>{
                         <FormGroup>
                             <h6 for="businessName">Business Name</h6>
                             <Input type="text" placeholder="Business name" onChange={(e)=>handleChange(e,'businessName')} value={data.businessName}/>
-                            {error&&data.businessName.length==0 ?
+                            {error&&data.businessName.length===0 ?
                             <Label>Business name cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
                             <h6 for="ownerName">Owners Name</h6><Input type="text" placeholder="Owners name" 
                             onChange={(e)=>handleChange(e,'ownerName')} value={data.ownerName}/>
-                            {error&&data.ownerName.length==0 ?
+                            {error&&data.ownerName.length===0 ?
                             <Label>Owner name cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
                             <h6 for="drugLicence">Drug Licence</h6>
                             <Input type="text" placeholder="Licence number" onChange={(e)=>handleChange(e,'drugLicence')} value={data.drugLicence}/>
-                            {error&&data.drugLicence.length==0 ?
+                            {error&&data.drugLicence.length===0 ?
                             <Label>Drug licance cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
                             <h6 for="gst">gst</h6><Input type="text" placeholder="gst number" onChange={(e)=>handleChange(e,'gst')} value={data.gst}/>
-                            {error&&data.gst.length!=15 ?
+                            {error&&data.gst.length!==15 ?
                             <Label>Enter valid gst number</Label>:""}
                         </FormGroup>
                         <FormGroup>
                             <h6 for="phoneNumber">Phone number</h6><Input type="number" placeholder="Phone number" onChange={(e)=>handleChange(e,'phoneNumber')} value={data.phoneNumber}/>
-                            {error&&data.phoneNumber.length!=10||data.phoneNumber<6000000000?
+                            {error&&(data.phoneNumber.length!==10||data.phoneNumber<6000000000)?
                             <Label>Enter valid Phone number</Label>:""}
                             
                         </FormGroup>
                         <FormGroup>
                             <h6 for="password">password</h6><Input type="text" placeholder="password" onChange={(e)=>handleChange(e,'password')} value={data.password}/>
-                            {error&&data.password.length==0 ?
+                            {error&&data.password.length===0 ?
                             <Label>password cannot be empty</Label>:""}
                             {error&&data.password.length<=4 ? <Label>password should be greater than four charecters</Label>:""}
                         </FormGroup>

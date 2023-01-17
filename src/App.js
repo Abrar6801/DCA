@@ -26,7 +26,6 @@ import BlockedUserInfo from './Components/User/BlockedUserInfo';
 
 
 function App() {
-  const adm = 'admin';
   return (
     <div>
       <BrowserRouter>

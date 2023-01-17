@@ -33,14 +33,11 @@ const AddRep=()=>{
 
     const submitRep=(event)=>{
         event.preventDefault();
-        if(data.name.length==0 || data.position.length==0 || data.phoneNumber.length!=10 || data.position.length==0 || data.phoneNumber<6000000000 ){
+        if(data.name.length===0 || data.position.length===0 || data.phoneNumber.length!==10 || data.position.length===0 || data.phoneNumber<6000000000 ){
             setError(true)
         }else{
         setError(false);
-        console.log(data);
         repAdd(data).then((resp)=>{
-            console.log(resp);
-            console.log("entered rep")
             toast.success("Representative added")
             setData({
                 name:'',
@@ -69,28 +66,28 @@ const AddRep=()=>{
                             <h6 for="name">Name</h6>
                             <Input type="text" placeholder="Representaive name"
                             onChange={(e)=>handleRep(e,'name')} value={data.name}/>
-                            {error&&data.name.length==0 ?
+                            {error&&data.name.length===0 ?
                             <Label>Name cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
                             <h6 for="position">position</h6>
                             <Input type="text" placeholder="position"
                             onChange={(e)=>handleRep(e,'position')} value={data.position}/>
-                            {error&&data.position.length==0 ?
+                            {error&&data.position.length===0 ?
                             <Label>position cannot be empty</Label>:""}
                         </FormGroup>
                         <FormGroup>
                             <h6 for="phoneNumber">Phone Number</h6>
                             <Input type="number" placeholder="Phone number"
                             onChange={(e)=>handleRep(e,'phoneNumber')} value={data.phoneNumber}/>
-                            {error&&data.phoneNumber.length!=10|| data.phoneNumber<6000000000 ?
+                            {error&&(data.phoneNumber.length!==10|| data.phoneNumber<6000000000) ?
                             <Label>Enter valid Phone number</Label>:""}
                         </FormGroup>
                         <FormGroup>
                             <h6 for="email">Email</h6>
                             <Input type="email" placeholder="Email"
                             onChange={(e)=>handleRep(e,'email')} value={data.email}/>
-                            {error&&data.email.length==0 ?
+                            {error&&data.email.length===0 ?
                             <Label>Email cannot be empty</Label>:""}
                         </FormGroup>
                         <Container>

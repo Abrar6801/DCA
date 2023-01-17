@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { Button,Container, Table } from "reactstrap";
 import axios from "axios";
 
@@ -9,7 +9,6 @@ import { BASE_URL } from "../Services/Helper";
 
 const User = ({user,update}) =>{
     const deleteUser=(id)=>{
-        console.log(user);
         axios.delete(`${BASE_URL}/users/deleteUser/${id}`).then(
             (response)=>{
                 toast.success("deleted");
@@ -21,15 +20,12 @@ const User = ({user,update}) =>{
         )
     }
     const blockUser=(user,blocked,id)=>{
-        setLoading(true);
         axios.put(`${BASE_URL}/users/blockkOrUnblock/${blocked}/${id}`,user).then(
             (response)=>{
                 toast.success("blocked");
             }
         )
-        setLoading(false);
     }
-    const [loading,setLoading] = useState(false);
 
     
      return <Container>

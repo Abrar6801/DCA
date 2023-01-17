@@ -15,12 +15,10 @@ const UserRepDisplay=()=>{
         setLoading(true);
         axios.get(`${BASE_URL}/representatives`).then(
             (response) => {
-                console.log(response.data);
                 setReps(response.data);
                 setLoading(false);
             },
             (error) => {
-                console.log(error);
                 toast.error("something went wrong")
             }
         );
@@ -30,15 +28,12 @@ const UserRepDisplay=()=>{
     },[]);
     const [reps,setReps] = useState([]);
 
-    const updateRepById=(id)=>{
-        setReps(reps.filter((c)=>c.id!=id));
-    }
     return(
         <div>
             <UserNavBar/><br/>
             {loading && <Spin/>}
             {
-                reps.length>0 ? reps.map((item)=><RepDisplay key={item.id} rep = {item} update={updateRepById}/>):"No Reps"
+                reps.length>0 ? reps.map((item)=><RepDisplay key={item.id} rep = {item} />):"No Reps"
             }
         </div>
     )

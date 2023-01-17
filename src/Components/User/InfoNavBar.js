@@ -7,7 +7,6 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem,
     NavbarText,
   } from 'reactstrap';
   

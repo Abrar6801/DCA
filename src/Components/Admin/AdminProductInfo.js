@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Container, Table } from "reactstrap";
 import { BASE_URL } from "../Services/Helper";
 import Spin from "../Spin";
 import InfoNavBar from "../User/InfoNavBar";
@@ -18,12 +17,10 @@ const AdminProductInfo=()=>{
         setLoading(true);
         axios.get(`${BASE_URL}/products`).then(
             (response) => {
-                console.log(response.data);
                 setProducts(response.data);
                 setLoading(false);
             },
             (error) => {
-                console.log(error);
                 toast.error("something went wrong");
             }
         );

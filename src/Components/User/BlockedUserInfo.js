@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Container } from "reactstrap";
-
 import { BASE_URL } from "../Services/Helper";
 import Spin from "../Spin";
 import BlockedUser from "./BlockedUser";
